@@ -41,9 +41,9 @@ It starts the server in the development mode.
 
 The server will reload if you make edits.
 
-## Deployment Process
+## Deploying to Heroku (You will need to be added to heroku app)
 
-The name of production branch: `production`
+__The production branch used is__: `production`
 
 Follow the next step to create an implementation:
 
@@ -57,3 +57,20 @@ Follow the next step to create an implementation:
   - In the index.html of `/client`, remane the title from React App to "VoiceMail Management"
 3. Stage your changes
 4. run command git push origin production, to generate an update the production branch.
+
+5. Set up the various variables
+
+```sh
+$ git remote add prod https://git.heroku.com/voicemail-management.git
+```
+
+6. Run a git push with the name of the heroku remote
+
+```sh
+$ git push [remote] [branch-to-push]:master
+
+Examples:
+
+$ git push prod <current_branch>:master
+
+$ git push prod production:master
