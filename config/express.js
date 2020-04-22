@@ -4,6 +4,7 @@ const { agent } = require('superagent');
 const superagentAbsolute = require('superagent-absolute');
 const cors = require('cors');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const responses = require('../middleware/responses');
 const apiRoutes = require('../routes');
 const config = require('.');
@@ -19,6 +20,8 @@ if (NODE_ENV !== 'test') {
 }
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(responses);
 app.use('/api', apiRoutes);
 
